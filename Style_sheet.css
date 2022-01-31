@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+:root {
+    --SideNav_Toggle_BtnColor: #ED2331;
+    --MainNav_Bg_Color:#2D2D2D;
+    --LetterColor: snow;
+  }
+
+
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: snow;
+    margin:0;
+
+
+
+    font-family: 'Bree Serif', 'Serif';
+    font-size: 20px;
+    font-weight: normal;
+    color:var(--LetterColor);
+  }
+
+
+ #Navigator{
+    height: 50%;
+    display: inline-flex;
+    align-items: center;
+    font-size: 26px;
+    background: #BB101C;
+    border: 1px solid #ED2331;
+    box-sizing: border-box;
+    box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
+    
+
+}
+
+#Navigator ul {
+   
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    list-style: none;
+    display: inline;
+    padding: 0;
+  }
+
+  #Navigator ul li {
+    display: inline;
+    padding: 3rem;
+    
+    
+   }
+
+   #Navigator ul li a{
+       color:var(--LetterColor);
+       text-decoration: none;
+       
+       text-shadow: 0px 4px 10px #000000;
+       display: inline-block;
+
+   }
+
+
+
+
+   #Navigator ul li a::after{
+    content: '';
+    width: 0px;
+    height: 3px;
+    display: block;
+    background: var(--LetterColor);
+    transition: all 0.3s ease-in-out;
+    filter: drop-shadow(0px 2px 2px var(#000000 ))
+    
+}
+
+
+#Navigator ul li a:hover::after {
+        width: 100%;
+        border-style: solid;
+        border-width: 0px;
+        
+       
+    
+    }
+    
+
+
+
+
+#MainNav{
+    
+    display: flex;
+    width: 100%;
+    height: 10%;
+    background: var(--MainNav_Bg_Color);
+    align-items: center;
+}
+
+ /* BUTTON FOR SIDENAV*/
+
+  .sidenav-toggle {
+    justify-content: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 12px;
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+    transform: translateZ(0);
+    transition: transform 0.1s ease-out;
+  }
+  .sidenav-toggle:active {
+    transform: translateY(4px);
+  }
+  .sidenav-toggle:focus .line:after {
+    background-color: var(--SideNav_Toggle_BtnColor);
+  }
+  
+  .line {
+    display: block;
+    width: 60px;
+    padding: 3.75px;
+    filter: drop-shadow(0px 2px 2px var(--SideNav_Toggle_BtnColor));
+  }
+  .line:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 7.5px;
+    background-color: var(--SideNav_Toggle_BtnColor);
+    border-radius: 2px;
+    transform: translateZ(0) rotate(0);
+    transition: background-color 0.2s ease-out;
+  }
+  .open .line:nth-child(1) {
+    -webkit-animation: jump-1 0.9s forwards ease;
+            animation: jump-1 0.9s forwards ease;
+  }
+  .open .line:nth-child(1):after {
+            animation: line-1 0.9s forwards ease-in-out;
+  }
+  .open .line:nth-child(2) {
+            animation: jump-2 0.9s forwards ease;
+  }
+  .open .line:nth-child(2):after {
+            animation: line-2 0.9s forwards ease-in-out;
+  }
+  .close .line:nth-child(1) {
+    animation: jump-1 0.9s reverse ease;
+  }
+  .close .line:nth-child(1):after {
+    animation: line-1 0.9s reverse ease-in-out;
+  }
+  .close .line:nth-child(2) {
+    animation: jump-2 0.9s reverse ease;
+  }
+  .close .line:nth-child(2):after {
+    animation: line-2 0.9s reverse ease-in-out;
+  }
+
+  .open .line:nth-child(3), .open .line:nth-child(3) {
+    animation: jump-3 0.9s forwards ease-out;
+}
+
+  .close .line:nth-child(3), .close .line:nth-child(3) {
+            animation: jump-3 0.9s reverse ease-out;
+  }
+  
+
+  
+  @keyframes line-1 {
+    10% {
+      transform: translateZ(0) rotate(0);
+    }
+    80% {
+      transform: translateZ(0) rotate(395deg);
+    }
+    90%, 100% {
+      transform: translateZ(0) rotate(405deg);
+    }
+  }
+
+  @keyframes line-2 {
+    10% {
+      transform: translateZ(0) rotate(0);
+    }
+    20% {
+      transform: translateZ(0) rotate(10deg);
+    }
+    90%, 100% {
+      transform: translateZ(0) rotate(-405deg);
+    }
+  }
+
+  @keyframes jump-1 {
+    10% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-90px);
+    }
+    90%, 100% {
+      transform: translateY(14.5px);
+    }
+  }
+
+  @keyframes jump-2 {
+    10% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-75px);
+    }
+    85%, 100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  @keyframes jump-3 {
+      0% {  
+        transform: translateY(0px) rotate(0);
+
+      }
+    10% {
+      transform: translateY(0px) rotate(0);
+    }
+    30% {
+      transform: translateY(-30px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(7.5px) rotate(0deg);
+    }
+    80% {
+      transform: translateY(12px);
+    }
+    
+    100% {
+        
+        transform: translate(-100px,12px)
+        
+      }
+}
+ 
+  @keyframes glow {
+    50% {
+      box-shadow: rgba(90, 90, 90, 0.4) 0 0 2px 2px;
+    }
+  }
