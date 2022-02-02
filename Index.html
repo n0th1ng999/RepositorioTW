@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <link rel="stylesheet" href="Style_sheet.css">
     </head>
     <body>
@@ -17,6 +18,23 @@
                    <li><a>ABOUT</a></li>
                 </ul>  </div>
         </nav>
+        
+
+        <div id="Slideshow" ondrag="SlideshowDrag(this)">
+            <img id="img1" src="https://picsum.photos/id/1/1440/583/" class="img hidden">
+            <img id="img2" src="Slides/Untitled.png" class="img">
+            <img id="img3" src="https://picsum.photos/id/2/1440/583/" class="img hidden">
+            <div class="slideshow-indicator-positioner">
+                <div class="slideshow-indicator">
+                    <button id="slide1" class="slideshow-indicator-position" onclick="ChangeImg(this)">         </button>
+                    <button id="slide2" class="slideshow-indicator-position current" onclick="ChangeImg(this)"> </button>
+                    <button id="slide3" class="slideshow-indicator-position " onclick="ChangeImg(this)">        </button>
+                </div>
+            </div>
+        </div>
+
+        
     </body>
     <script  type="text/javascript" src="Script.js" ></script>
+    <script  type="text/javascript" src="Script2.js" ></script>
 </html> 
