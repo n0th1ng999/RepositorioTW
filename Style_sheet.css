@@ -1,44 +1,201 @@
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap');
+
+
+
+
 
 :root {
     --SideNav_Toggle_BtnColor: #ED2331;
     --MainNav_Bg_Color:#2D2D2D;
     --LetterColor: snow;
+    --varRed : #bc101c;
+  }
+
+  input{
+    font-family: 'Bree Serif', 'Serif';
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 0.1rem;
+
+  }
+
+  input::placeholder{
+    color: rgb(19, 19, 19);
   }
 
 
-
 body {
+    margin-top: 10vh;
     display: flex;
     flex-direction: column;
-    height: 200vh;
+    height: fit-content;
     background-color: snow;
     margin:0;
-
+    letter-spacing: 0.1rem;
 
 
     font-family: 'Bree Serif', 'Serif';
-    font-size: 20px;
+    font-size: 22px;
     font-weight: normal;
     color:var(--LetterColor);
   }
 
+  #MainNav{
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    
+    width: 100%;
+    height: 10vh;
+    background: var(--MainNav_Bg_Color);
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.527) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    
+}
+
+.Button-and-Navigator-Position-Holder{
+  width: fit-content;
+  height: fit-content;
+  display: inline-flex;
+  align-items: center;
+}
+
+.searchBox-and-user-icon-flex-position-holder{
+  width: fit-content;
+  height: fit-content;
+  display: inline-flex; 
+  justify-content: space-between;
+  margin-right: 1%;
+
+}
+
+.user-icon,.searchBox{
+  margin-left: 15px ;
+}
+
+
+.user-icon{
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--SideNav_Toggle_BtnColor);
+  float: right;
+  justify-self: end;
+  background: #bc101c;
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  padding: 10px;
+  filter: drop-shadow(2px 4px 6px black);
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+    }
+
+    .user-icon div{
+      width: 40px;
+      height: 40px;
+      border-radius: 40px;
+      background: #0000002f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+.user-icon div img{
+  width: 40px;
+  height: 40px;
+}
+
+
+
+  .searchBox {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ed2331;
+    float: right;
+    justify-self: end;
+    background: #bc101c;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    filter: drop-shadow(2px 4px 6px black);
+    cursor:pointer;
+
+}
+
+.searchBox:hover > .searchInput {
+  width: 240px;
+  padding: 0 6px;
+}
+
+
+
+.searchButton {
+ 
+  border:0;
+  color: snow;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0000002f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  
+}
+
+.searchButton img{
+  height: 30px;
+  width: 30px;
+}
+
+.searchInput {
+  border:none;
+  background: none;
+  outline:none;
+  float:right;
+  padding: 0;
+  color: snow;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+
+}
+
+.searchInput::placeholder{
+  color: rgb(170, 170, 170);
+}
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+  width: 150px;
+  padding: 0 6px;
+}
+}
 
  #Navigator{
-    height: 70%;
-    display: inline-flex;
+    
     align-items: center;
     font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.15rem;
     background: #BB101C;
     border: 1px solid #ED2331;
     box-sizing: border-box;
     box-shadow: inset 0px 4px 4px rgb(0 0 0 / 25%);
+    padding: 0.3rem;
+    border-radius: 50px;
     
 
 }
-
-
 
 #Navigator ul {
    
@@ -52,7 +209,7 @@ body {
 
   #Navigator ul li {
     display: inline;
-    padding: 3rem;
+    padding: 1rem;
     
     
    }
@@ -98,8 +255,7 @@ body {
   align-items: center;
   justify-content: end;
   cursor: grab;
-  
-  
+  padding-top: 10vh;
 }
 
 
@@ -148,15 +304,7 @@ body {
   background: rgba(255, 250, 250, 0.600);
 }
 
-#MainNav{
-    z-index: 0;
-    display: flex;
-    width: 100%;
-    height: 10vh;
-    background: var(--MainNav_Bg_Color);
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.527) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
+
 
  /* BUTTON FOR SIDENAV*/
 
@@ -172,7 +320,9 @@ body {
     outline: none;
     transform: translateZ(0);
     transition: transform 0.1s ease-out;
+    z-index: 100000;
   }
+  
   .sidenav-toggle:active {
     transform: translateY(4px);
   }
@@ -326,4 +476,652 @@ body {
     90%, 100% {
       transform: translateZ(2rem) ;
     }
+  } 
+
+  /*        END OF SIDENAVBUTTON           */
+
+
+  /* SIDENAV */
+
+  
+
+  .sidenavBackground{
+    transition: all 00.9s ease;
+    position:fixed ;
+    display: none;
+    flex-direction: column;
+    width: 100vw;
+    height: 80vw;
+    z-index: 5;
+    background: #2f2f2f65;
+    margin-top: 10vh; 
   }
+  
+
+  .sidenav{
+    
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 100%;
+    z-index: 100;
+    background: rgb(49, 49, 49);
+    
+    animation: sidenav-toggle 1 0.9s forwards ease;
+  }
+
+  @media screen and (max-width: 1300px) {
+    body{
+      font-size: 2rem;
+    }
+
+    .sidenavBackground{
+      height: 100%;
+    
+    }
+    .sidenav{
+      width: 100%;
+      
+    }
+  } 
+
+  .sidenav ul{
+    transition: all 0.2s ease;
+    padding: 0;
+    margin: 0;
+  }
+  .sidenav ul li{
+    list-style: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background:#ED2331 ;
+    padding-left: 1rem;
+    
+    
+  }
+
+  .sidenav a{
+    color: snow;
+    text-decoration: none;
+    
+  }
+
+  .sidenav ul  > ul > li{
+    
+    background:#ed233193 ;
+    
+    
+    
+  }
+  .sidenav ul  > ul > ul > li{
+    
+    
+    background:#ed233100 ;
+    
+  }
+
+  .sidenav ul li img{
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem; 
+    transition: all 0.2s ease;
+  }
+
+  .sidenav ul .active > img{
+    
+    transform: rotate(90deg);
+  }
+
+  .sidenav span{
+    padding-right: 1.5rem;
+  }
+
+  .collapsible{
+    cursor: pointer;
+  }
+  
+.content{
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+ 
+  
+}
+
+
+
+  .NoScroll{
+    overflow: hidden;
+  }
+
+  .visible{
+    display: flex;
+  }
+
+  @keyframes sidenav-toggle{
+    0%{
+      transform: translateX(-2000px);
+      }
+
+    100%{
+      transform: translateX(0px);
+    }
+  }
+
+   /* SIDENAV */
+ 
+  .title{
+    background: rgba(0, 0, 0, 0.281);
+    padding-inline: 2rem;
+  }
+  .title h2::after{
+    content: '';
+    width: 0px;
+    height: 3px;
+    display: block;
+    background: var(--varRed);
+    width: 100%;
+  }
+
+
+  .main-part{
+    
+    height: 325vh;
+    width: 100%;
+    background-color: #2D2D2D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+  }
+
+
+ 
+
+  .black , .gray{
+    min-height: 100vh;
+    max-height: fit-content;
+    width: 80%;
+    filter: drop-shadow(2px 4px 6px black);
+    box-shadow: inset 0px 1px 10px #1b1b1b;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    
+  }
+
+  @media screen and (max-width: 1300px) {
+    .black, .gray {
+      width: 100%;
+      height: fit-content;
+    }
+    } 
+
+  .gray{
+    background: #2e2e2e;
+    z-index: 1;
+  }
+
+  .black{
+    background: #202020;
+    
+  }
+
+
+  
+
+
+  .highlighted-games{
+    
+    height: 15vh;
+    width: 100%;
+    background-color: #555555;
+    filter: drop-shadow(2px 4px 6px black);
+    
+  }
+  
+
+  .container-for-cards{
+    height: 75vh;
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+
+  .cardcat{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    user-select: none;
+    width: 10rem;
+    height: 10rem;
+    background-color: #1b1b1b;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-inline-end: 2.5%;
+    margin-inline-start: 2.5%;
+    transition: all .1s ease-in;
+    border-radius: 15px;
+  }
+
+  .cardcat:hover{
+    z-index: 1;
+    transform: scale(1.5); 
+    cursor: pointer;
+  }
+
+  .cardcat a div{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+
+  .cardcat a div{
+    margin: 0.5rem;
+    border-radius: 15px;
+    width: 9rem;
+    height: 9rem;
+    background: var(--varRed);
+  }
+
+  .cardcat a div img{
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .card{
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    user-select: none;
+    width: 10rem;
+    height: 18rem;
+    background-color: #1b1b1b;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-inline-end: 2.5%;
+    margin-inline-start: 2.5%;
+    transition: all .1s ease-in;
+   
+  }
+
+  .card a{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .card:hover{
+    z-index: 1;
+    transform: scale(1.5); 
+    cursor: pointer;
+  }
+
+  .card:hover a  > h4{
+    z-index: 1;
+    background: rgb(253, 12, 12);
+    transition: all .4s ease-in;
+  }
+
+
+  .card img {
+    width: 10rem;
+    height: 10rem;
+
+  }
+  .card h4,h5,h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+    
+    
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    
+  }
+
+  
+  .card h4{
+    background: #bc101c;
+    text-align: center;
+    text-transform:uppercase;
+  }
+  
+  .card h5{
+    color: #BB101C;
+    text-align: left;
+    text-transform:uppercase;
+    margin-inline-start: 4%;
+
+  }
+  .card h6{
+    
+    margin-inline-end: 4%;
+    margin-inline-start: 4%;
+    font-size: 0.6em;
+    line-height: 1.05em;
+    line-clamp: 3;
+    
+
+  }
+
+  .card h6:nth-child(6),.card h6:nth-child(5){
+    text-align: right;
+  }
+ 
+
+  
+
+  .Load-More-Button{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Bree Serif', 'Serif';
+    letter-spacing: 2px;
+    font-size: 20px ;
+    border-style: none;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: #BB101C;
+    color: snow;
+    box-shadow: 
+    0 0px 0px 5px#0e0e0e,
+    0 0px 5px 10px#1b1b1b;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: background 0.3s;
+    transition: color 0.3s ;
+    margin-bottom: 2vh;
+    
+    
+  }
+
+
+  .Load-More-Button:hover{
+    animation:  ease-in;
+    background-color: #ff1828;
+    color: #0e0e0e;
+    cursor: pointer;
+    
+
+  }
+
+  .Load-More-Button:active{
+    animation:  ease-in;
+    background-color: snow;
+    color: #0e0e0e;
+    cursor: pointer;
+   
+
+  }
+
+  .Load-More-Button h3 {
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+  }
+
+.Sponsers{
+  width: 100%;
+  height: 3%;
+  background: snow;
+
+}
+
+footer{
+  width: 100%;
+  height: 5%;
+  background: #1b1b1b;
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+
+footer ul{
+ 
+  padding-left: 0px;
+}
+
+footer li{
+  padding-left: 20px;
+  list-style: none;
+}
+
+/*  
+    width: 90%;
+    height: 75vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    flex-direction: row-reverse;
+
+*/
+
+/*about page*/
+.navspacer{
+  padding-top:10vh; 
+}
+
+
+
+.container-for-text{
+  width: 90%;
+  height: 75vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+  
+}
+
+.container-for-text div h2::after,.container-for-text div h3::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 5px;
+  background: var(--varRed);
+
+}
+
+.container-for-text div:nth-child(1){
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: flex-start;
+  word-break:break-all;
+
+}
+
+
+.container-for-text div:nth-child(2){
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items:center;
+  justify-content: center;
+
+}
+
+
+.container-for-text div:nth-child(2){
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items:center;
+  justify-content: center;
+
+}
+
+.container-for-text img{
+  border-radius: 100%;
+  box-shadow:
+  0 0 0 10px var(--SideNav_Toggle_BtnColor),
+  0 0 0 15px var(--varRed);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.65));
+  transition: all .1s ease-in;
+}
+
+.container-for-text img:hover{
+ transform: scale(1.5); 
+}
+
+.reverse{
+  flex-direction: row-reverse;
+}
+
+/*about page*/
+
+
+
+/* Login and Register page*/
+  .background{
+  
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(#2f2f2f,#0e0e0e);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .login-and-register{
+    display: flex;
+    background: #bb101b;
+    width: fit-content;
+    height: max-content;
+    justify-content: space-around;
+    padding-inline: 5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    transition: all 0.3s;
+    overflow: hidden;
+    border: 0.5rem solid rgba(95, 0, 0, 0.397);
+    filter: drop-shadow(2px 4px 6px black);
+  }
+
+  .login-and-register div{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  
+  
+  .login-and-register input[type=text],  .login-and-register input[type=Password],  .login-and-register input[type=Email] {
+   
+    background: #ffffff17;
+    border: none;
+    padding: 0;
+    width: max-content;
+    transition: all 0.9s ease;
+    outline: none;
+    padding: 0;
+    color: snow;
+    line-height: 1rem;
+    padding: 0.5rem;
+    box-shadow: -10px 0px 0px #dddddd,
+      0px 0px 15px #000000;
+    position: relative;
+    left: 10px
+
+      
+  }
+
+  .login-and-register  input[type=text]:focus,.login-and-register  input[type=email]:focus,.login-and-register  input[type=password]:focus{
+    outline:none;
+    transform: scale(1.2);
+    box-shadow: -10px 0px 0px #ff0718,
+      0px 0px 15px #000000;
+  }
+
+
+  .login-and-register h2{
+    text-align: center;
+    font-size: 3rem;
+    
+  }
+
+  .login-and-register h2::after{
+    display: block;
+    content: '';
+    height: 3px;
+    width: 100%;
+    background: var(--SideNav_Toggle_BtnColor);
+  }
+  
+  
+
+  .login-and-register h4{
+    position: relative;
+    text-align: left;
+    margin-bottom: 0.3rem;
+    
+  }
+  
+ 
+ 
+  .background h1 {
+    font-size:4rem;
+   filter:drop-shadow(2px 4px 6px black);
+  }
+
+  
+  .login-and-register form{
+    display: flex;
+    flex-direction: column;
+    }
+
+
+    .login-and-register input[type=submit]{
+     
+     width: 100%;
+     align-self: center;  
+     padding: 0.5rem;
+     padding-bottom: 0.6rem;
+     
+     
+    
+     
+      }
+  
+
+  .login-and-register a{
+    transition: all 0.9s ease;
+    margin-top: 0.5rem;
+    font-size:medium;
+    background: rgb(255, 0, 21);
+    color: Black;
+    padding: 0.2rem;
+    text-decoration: none;
+    width: fit-content;
+    align-self: center;
+    }
+
+    .login-and-register a:hover{
+      background: rgb(251, 66, 82);
+    }
+
+    .HomeButton img{
+      position: fixed;
+      width: 5rem;
+      height: 5rem;
+      padding-top: 6rem;
+      padding-left: 8rem;
+      filter: drop-shadow(2px 4px 6px black);
+    }
+
+
+/* Login and Register page*/
