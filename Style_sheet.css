@@ -526,7 +526,7 @@ body {
   } 
 
   .sidenav ul{
-    transition: all 0.2s ease;
+    transition: all 0.4s ease;
     padding: 0;
     margin: 0;
   }
@@ -536,9 +536,15 @@ body {
     padding-bottom: 1rem;
     background:#ED2331 ;
     padding-left: 1rem;
+    transition: all .2s ease;  }
+
+  .sidenav ul li:hover{
     
+    background:#e70514 ;
     
   }
+
+
 
   .sidenav a{
     color: snow;
@@ -627,21 +633,21 @@ body {
 
   .main-part{
     
-    height: 325vh;
+    min-height: 300vh;
+    max-height: fit-content;
     width: 100%;
     background-color: #2D2D2D;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-
   }
 
 
  
 
   .black , .gray{
-    min-height: 100vh;
+    transition: all 0.9s ease ;
+    min-height: 94vh;
     max-height: fit-content;
     width: 80%;
     filter: drop-shadow(2px 4px 6px black);
@@ -650,8 +656,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-
-    
   }
 
   @media screen and (max-width: 1300px) {
@@ -686,17 +690,30 @@ body {
   
 
   .container-for-cards{
-    height: 75vh;
+    min-height: 75vh;
+    max-height: fit-content;
     width: 80%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    animation: bounce .5s linear forwards;
+    text-align: center;
   }
 
 
+  .Holderforcardcat{
+    
+    margin-inline-end: 2.5%;
+    margin-inline-start: 2.5%;
+    margin-inline: 5%;
+  }
+
+
+
   .cardcat{
-    margin-top: 2vh;
-    margin-bottom: 2vh;
+   
+    margin-top: 2rem;
+    margin-bottom: 5rem;
     user-select: none;
     width: 10rem;
     height: 10rem;
@@ -706,6 +723,10 @@ body {
     margin-inline-start: 2.5%;
     transition: all .1s ease-in;
     border-radius: 15px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
   }
 
   .cardcat:hover{
@@ -733,21 +754,29 @@ body {
   }
 
   .cardcat a div img{
-    width: 5rem;
-    height: 5rem;
+    min-width: 5rem;
+    max-width: fit-content;
+    min-height: 5rem;
+    max-width: fit-content;
   }
 
   .card{
+    
     margin-top: 2vh;
     margin-bottom: 2vh;
     user-select: none;
-    width: 10rem;
-    height: 18rem;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    
+    
+    max-width: 12rem;
     background-color: #1b1b1b;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin-inline-end: 2.5%;
     margin-inline-start: 2.5%;
     transition: all .1s ease-in;
+    overflow: visible;
    
   }
 
@@ -755,6 +784,8 @@ body {
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    width: fit-content;
+    height: fit-content;
   }
 
   .card:hover{
@@ -771,7 +802,7 @@ body {
 
 
   .card img {
-    width: 10rem;
+    width: 100%;
     height: 10rem;
 
   }
@@ -869,14 +900,25 @@ body {
 
 .Sponsers{
   width: 100%;
-  height: 3%;
+  height: 10vh;
   background: snow;
 
 }
 
+
+
+@keyframes bounce {
+  0% { transform: scale(.1); opacity: 0 }  
+  80% { transform: scale(1.15); opacity: 1 }  
+  90% { transform: scale(.9); }  
+  100% { transform: scale(1); }  
+}
+
+
 footer{
   width: 100%;
-  height: 5%;
+  min-height: 5%;
+  max-height: fit-content;
   background: #1b1b1b;
   display: grid;
   justify-content: space-around;
@@ -913,7 +955,8 @@ footer li{
 
 .container-for-text{
   width: 90%;
-  height: 75vh;
+  min-height: 75vh;
+  max-height: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -1125,3 +1168,456 @@ footer li{
 
 
 /* Login and Register page*/
+
+/* Profile */ 
+.card-for-profile{
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  height: 40%;
+  margin: 5%;
+  background: #0e0e0e;
+  filter: drop-shadow(2px 4px 6px black);
+  transition: all 0.9s ease;
+  border-radius:  5px;
+  
+}
+
+.card-for-profile:hover{
+  background: #242424;
+}
+
+.card-for-profile a{
+  color: snow;
+  text-decoration: none;
+}
+
+.addspace{height: 120vh;}
+
+.removespace{min-height:120vh}
+
+.login-and-register input:read-only{
+  background-color: #2D2D2D;
+}
+
+.login-and-register input:read-only:focus{
+  transform: scale(1);
+  box-shadow: -10px 0px 0px #dddddd;
+}
+
+/* Product page */
+.Main-info-display{
+  display: flex;
+  flex-direction: row;
+  padding: 5rem;
+}
+
+
+
+.Main-info-display img{
+  width: 20%;
+  
+}
+
+.info{
+  width: 20%;
+  height: fit-content;
+  background: #242424;
+  padding: 2rem;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+
+
+.info img {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1rem;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.info div{
+  display: inline-flex;
+}
+
+.info a{
+  color: rgb(255, 17, 17);
+  text-decoration: none;
+}
+
+.info b{
+  color: rgb(58, 216, 53);
+  text-decoration: none;
+}
+
+
+.fitHeight{
+  min-height: fit-content;
+  
+
+}
+
+.title-and-info{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 80%;
+  
+  
+}
+
+.title-and-info .title{
+    height: fit-content;
+    margin-left: 25%;
+    width: 50%;
+    margin-right: 25%;
+    text-align: center;
+    
+
+}
+
+.info h1,.info h2,.info h3,.info h4,.info h5,.info h6{
+  padding: 0;
+  margin: 0;
+
+}
+
+.Rating h4{margin: 0;
+padding: 0;}
+
+.rate {
+  display: inline!important;
+  float: left;
+  height: fit-content;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:2.2rem;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate >  input:checked ~ label {
+  color: #ffcc15;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rate > input:checked +  label:hover,
+.rate >  input:checked +  label:hover ~ label,
+.rate >  input:checked ~  label:hover,
+.rate >  input:checked ~  label:hover ~ label,
+.rate > label:hover ~ .rate input:checked ~ label {
+  color: #c59b08;
+}
+
+.Text-Area{
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background: #2e2e2e;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.315));
+}
+
+.Text-Area>*{
+  margin-inline:2rem;
+}
+
+.reviews{
+  display: flex;
+  flex-direction: row;
+
+}
+.Text-Area .info{
+  margin-right:1rem;
+}
+
+
+
+.Text {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background: #1b1b1b;
+  padding-inline: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-inline:2rem;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.Text span{
+  
+  display: flex;
+    align-items: center;
+    
+}
+
+.Text span img{
+  width: 1.5rem;
+  margin-right: 1rem;
+}
+
+.Text span h4{
+  
+  margin-right: 1rem;
+
+}
+
+
+
+/* Product page */
+
+/* Shop */
+.wide{
+  width:95vw;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+
+
+
+.Filters{
+
+position: sticky;
+top: 16vh;
+
+justify-self:left;
+margin: 4rem;
+filter: drop-shadow(2px 4px 6px black);
+display: flex;
+flex-direction: column;
+padding: 2rem;
+margin-bottom: 0;
+background:radial-gradient(#dd1a27, #bb101b);
+width: 30rem;
+}
+
+.Filters>* {
+  margin-bottom: 2rem;
+  font-size: 30px;
+}
+
+
+.Filters ul{
+  margin: 0;
+  padding: 0;
+  
+}
+
+.Filters .search{
+  width: 80%;
+  height: 3rem;
+  align-self: center;
+  display: flex;
+  align-items: stretch;
+  background: #bb101b;
+  padding: 0.5rem;
+  transition: all 0.8s ease;
+  border: solid 1px #1b1b1b;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+
+  
+
+.Filters input{
+  color: snow;
+  background: none;
+  border: none;
+  outline: none; 
+}
+
+
+.Filters .search input{
+  font-size: 1.2rem;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+
+
+.Filters .search:focus-within{
+  
+  background:radial-gradient(#bb101b,#b9202a)
+  
+}
+
+.price-Range{
+  display: flex;
+  justify-content: center;
+}
+
+.price-Range strong{
+  margin-inline: 2rem;
+}
+
+.price-Range input{
+  color: snow;
+  border: solid 1px #1b1b1b;
+  background: #bb101b;
+  width: 4rem;
+  transition: all 0.4s ease;
+  padding: 0.5rem;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.price-Range input:focus{
+  background: #7e070f;
+  width: 4rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.Filters label{
+  display: flex;
+  margin: 1rem;
+ 
+  
+}
+
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: none;
+  border: solid 1px #1b1b1b;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: rgba(204, 204, 204, 0.233);
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #be1717;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#ShopCards{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#ShopCards .container-for-cards{
+  padding-top:3rem;
+  width: 100%;
+}
+
+/* Checkout */
+
+.CheckoutCard{
+width: 42rem;
+}
+
+.CheckoutCard ul li{
+  list-style: none;
+  
+}
+
+.Cart-Item>*{
+  margin-top: 1rem;
+  margin-bottom : 1rem;
+}
+
+.Cart-Item{
+ 
+  display: flex;
+  justify-content: space-between;
+  height: 12rem;
+  min-width: fit-content;
+}
+
+.Cart-Item img{
+  justify-self:flex-start;
+}
+
+.Trash-and-Price{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+}
+
+.Spacer{
+  width: 100%;
+  height: 3px;
+  background: #f8161696;
+}
+
+.info-Item{
+  width: fit-content;
+}
